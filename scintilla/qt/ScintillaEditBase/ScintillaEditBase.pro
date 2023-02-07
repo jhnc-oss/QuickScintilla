@@ -11,7 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 5): QT += core5compat
 TARGET = ScintillaEditBase
 TEMPLATE = lib
 #CONFIG += lib_bundle	# PATCH
-CONFIG += staticlib
+#CONFIG += staticlib
 CONFIG += c++1z
 
 VERSION = 5.3.2
