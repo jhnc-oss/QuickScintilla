@@ -12,6 +12,10 @@ ApplicationWindow {
 
     property string urlPrefix: "file://"
 
+    Component.onCompleted: {
+    	applicationData.setScintilla(quickScintillaEditor)
+	}
+
     function buildValidUrl(path) {
         // ignore call, if we already have a file:// url
         path = path.toString()

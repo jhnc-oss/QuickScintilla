@@ -7,6 +7,14 @@
 #include <QByteArray>
 #include <QTextStream>
 
+#include "ScintillaEditBase.h"
+
+#include "ILexer.h"
+#include "Scintilla.h"
+#include "Lexilla.h"
+#include "SciLexer.h"
+
+
 ApplicationData::ApplicationData(QObject *parent)
     : QObject(parent)
 {
@@ -14,6 +22,17 @@ ApplicationData::ApplicationData(QObject *parent)
 
 ApplicationData::~ApplicationData()
 {
+}
+
+void ApplicationData::setScintilla(QObject * obj)
+{
+    ScintillaEditBase * base = reinterpret_cast<ScintillaEditBase *>(obj);   
+    Scintilla::ILexer5 *plexer = CreateLexer("python");
+    base->sends(SCI_SETILEXER, 0, (const char*)plexer);
+	base->sends(SCI_STYLERESETDEFAULT, 0, 0);
+    base->sends(SCI_STYLESETFORE, SCE_P_COMMENTLINE, (const char*) "#ff0000");	
+	base->sends(SCI_COLOURISE, 0, (const char*)-1);	
+	base->update();
 }
 
 bool IsAndroidStorageFileUrl(const QString & url)

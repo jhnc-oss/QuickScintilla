@@ -26,6 +26,8 @@ public:
     Q_INVOKABLE bool deleteFile(const QString & fileName);
 
     Q_INVOKABLE QString readLog() const;
+    
+    Q_INVOKABLE void setScintilla(QObject* editor);
 };
 
 #endif // APPLICATIONDATA_H

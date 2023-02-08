@@ -37,9 +37,11 @@ android {
     }
 }
 
-INCLUDEPATH += ../scintilla/qt/ScintillaEdit ../scintilla/qt/ScintillaEditBase ../scintilla/include ../scintilla/lexilla/src ../scintilla/lexlib ../scintilla/src
+
+INCLUDEPATH += ../scintilla/qt/ScintillaEdit ../scintilla/qt/ScintillaEditBase ../scintilla/include ../scintilla/src ../lexilla/include ../lexilla/src ../lexilla/lexlib ../lexilla/access
 
 LIBS += -L$$OUT_PWD/../scintilla/bin-$${ARCH_PATH}/ -lScintillaEditBase
+LIBS += $$PWD/../lexilla/bin/liblexilla.a
 
 RESOURCES += quickscintillademoapp.qrc
 
